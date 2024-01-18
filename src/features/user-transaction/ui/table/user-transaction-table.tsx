@@ -34,6 +34,8 @@ export const UserTransactionTable = ({ data }: IUserTransactionTable) => {
     );
 };
 
+UserTransactionTable.displayName = "UserTransactionTable";
+
 export const typeRenderer = (): TGridPaginableColumnBase["render"] => (row) => {
     return TRANSACTION_TYPE[row.type as keyof ITRANSACTION_TYPE];
 };

@@ -45,6 +45,8 @@ export const MyOrganizationTable = () => {
     );
 };
 
+MyOrganizationTable.displayName = "MyOrganizationTable";
+
 export const subscriptionTypeRenderer =
     (): TGridPaginableColumnBase["render"] => (row) => {
         return row.subscription.plan.type;
