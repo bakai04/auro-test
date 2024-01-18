@@ -1,0 +1,9 @@
+export { default as Organization } from "./organization.svg";
+export { default as Avatar } from "./default-avatar.svg";
+export { default as SearchCircle } from "./search-circle.svg";
+export { default as ArrowLeft } from "./arrow-narrow-left.svg";
+export { default as ArrowRight } from "./arrow-narrow-right.svg";
+export { default as Edit } from "./edit.svg";
+export { default as Trach } from "./trash.svg";
+export { default as Close } from "./close.svg";
+export { default as ChartLegend } from "./chart-legend-item.svg";
