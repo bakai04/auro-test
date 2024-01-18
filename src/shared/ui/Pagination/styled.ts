@@ -10,15 +10,19 @@ export const Wrapper = styled("div", {
         background: "#1C64F2",
     },
     ".page": {
-        cursor: "pointer",
-        padding: "6px 14px",
-        fontWeight: "$medium",
-        fontSize: "$s8",
-        color: "$whiteBase",
         borderRadius: "8px",
+        a: {
+            cursor: "pointer",
+            width: "38px",
+            padding: "6px 14px",
+            fontWeight: "$medium",
+            fontSize: "$s8",
+            borderRadius: "8px",
+            color: "$whiteBase",
 
-        "&:hover": {
-            background: "$gray2",
+            "&:hover": {
+                background: "$gray2",
+            },
         },
     },
 });
