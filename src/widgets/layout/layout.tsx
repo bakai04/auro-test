@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Container } from "./styled";
-import { CSSProperties } from "@stitches/react";
 
 interface ILayout extends React.ComponentProps<typeof Container> {
     children: React.ReactNode;
