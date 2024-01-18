@@ -11,7 +11,7 @@ const nextConfig = {
         return config;
     },
     publicRuntimeConfig: {
-        baseApiUrl: process.env.NEXT_BASE_API_URL,
+        baseApiUrl: process.env.NEXT_PUBLIC_BASE_API_URL,
     },
 };
 

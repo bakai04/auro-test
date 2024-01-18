@@ -30,7 +30,7 @@ export const UserTransaction = ({
             anchor="right"
             title={userData?.email}
         >
-            {data && <UserTransactionChart userData={userData} data={data} />}
+            <UserTransactionChart userData={userData} data={data} />
             <UserTransactionTable data={data} />
         </Drawer>
     );

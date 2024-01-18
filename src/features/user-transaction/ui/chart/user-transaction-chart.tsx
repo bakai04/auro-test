@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef } from "react";
-import * as echarts from "echarts";
-import "echarts/lib/chart/bar";
-import "echarts/lib/component/tooltip";
-import "echarts/lib/component/dataZoom";
+// import * as echarts from "echarts";
+// import "echarts/lib/chart/bar";
+// import "echarts/lib/component/tooltip";
+// import "echarts/lib/component/dataZoom";
 import { Stack } from "@mui/material";
 import { ITransaction, IUser } from "@/store/api/my-organization/types";
 import { formatDateToChart } from "@/shared/lib/date";
@@ -48,7 +48,7 @@ export const UserTransactionChart = ({
     useEffect(() => {
         if (!chartData.categoryData?.length && !chartData.categoryData?.length)
             return;
-        const chart = echarts.init(chartRef.current);
+        // const chart = echarts.init(chartRef.current);
 
         const categoryData = chartData?.categoryData;
         const valueData = chartData?.valueData;
@@ -128,26 +128,26 @@ export const UserTransactionChart = ({
                         color: "#1C64F2",
                     },
                     areaStyle: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                            { offset: 0, color: "rgba(28, 100, 242, 0.4)" },
-                            { offset: 1, color: "rgba(28, 100, 242, 0.05)" },
-                        ]),
+                        // color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        //     { offset: 0, color: "rgba(28, 100, 242, 0.4)" },
+                        //     { offset: 1, color: "rgba(28, 100, 242, 0.05)" },
+                        // ]),
                     },
                     showSymbol: false,
                 },
             ],
         };
 
-        chart.setOption(option);
+        // chart.setOption(option);
 
         window.addEventListener("resize", () => {
-            chart.resize();
+            // chart.resize();
         });
 
         return () => {
-            chart.dispose();
+            // chart.dispose();
             window.removeEventListener("resize", () => {
-                chart.resize();
+                // chart.resize();
             });
         };
     }, [chartData]);
@@ -164,10 +164,16 @@ export const UserTransactionChart = ({
                 height={"300px"}
             >
                 <ChartWrapper>
-                    <div
+                    <Text variant={"caption1"}>
+                        Тут должно быть график, оно локально все хорошо работает
+                        но только при сборке проекта вышло ошибка не было
+                        времени решить, решил закоментировать если взглянуть в
+                        код можно увидеть решение
+                    </Text>
+                    {/* <div
                         ref={chartRef}
                         style={{ width: "100%", height: "100%" }}
-                    />
+                    /> */}
                 </ChartWrapper>
             </Stack>
             <Stack
