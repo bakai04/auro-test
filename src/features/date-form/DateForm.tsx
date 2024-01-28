@@ -8,8 +8,8 @@ import {
     formYearController,
 } from "@/shared/lib/date-controller";
 import { useClickOutside } from "@/shared/hook/use-click-outside";
-import { Input } from "@/shared/ui/input";
-import { Text } from "@/shared/ui/text";
+import { Input } from "@/shared/ui/inputвыс";
+import { Text } from "@/shared/ui/выфыв";
 import { Button } from "@/shared/ui/button";
 
 export interface IDateFormValues {
