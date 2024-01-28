@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 700;
+  src: url("../../assets/fonts/SFProText-Semibold.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 600;
+  src: url("../../assets/fonts/SFProText-Bold.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 500;
+  src: url("../../assets/fonts/SFProText-Medium.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  src: url("../../assets/fonts/SFProText-Regular.ttf");
+}
+

@@ -4,27 +4,13 @@ import { globalCss } from "./stitchesConfig";
 
 export const globalStyles = globalCss({
     html: {
-        fontFamily: "$ibm",
+        fontFamily: "$sfPro",
         height: "100vh",
     },
     body: {
         height: "100vh",
         textRendering: "optimizeLegibility",
         fontSmooth: "always",
-        "-webkit-font-smoothing": "antialiased",
-        background: "$backgroundBody",
-
-        "&::-webkit-scrollbar": {
-            width: "0",
-            height: "14px",
-        },
-        "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#B9BCC3",
-            borderRadius: "4px",
-        },
-        "&::-webkit-scrollbar-track": {
-            backgroundColor: "white",
-        },
     },
     "*, :before, :after": {
         boxSizing: "border-box",

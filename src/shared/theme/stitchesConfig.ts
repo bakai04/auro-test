@@ -13,36 +13,20 @@ export const {
 } = createStitches({
     theme: {
         colors: {
-            //blue
-            primaryBlue: "#1C64F2",
-
-            // gray
-            gray1: "#616D8D",
-            gray2: "#313E62",
-            gray3: "#222B44",
-            gray4: "#121825",
-            gray6: "#9CA3AF",
-
-            //red
-            redCritic: "#FE4242",
-
-            //green
-            primaryGreen: "#1ABB34",
-
-            // white
-            whiteBase: "#fff",
-            whiteAccent: "#F8F9FA",
-
-            // black
-            primaryBlack: "#0E0C15",
-
-            /// ///////////////////////////
-
-            backgroundBody: "#0E0C15",
+            progressLine: "#00a3ff",
+            paleBlue: "#eff2fd",
+            strongBlue80: "#066fdecc",
+            strongBlue: "#066fde",
+            paleLander: "#dee5f9",
+            midnightBlack: "#121620",
+            slateBluePlaceholder: "#6b7baa",
+            paleBlueInput: "#eff2fd",
+            buttonActive: "#fff",
+            lightSilver: "#c7c7c7",
+            coral: "#ff5c5d",
         },
         fonts: {
-            ibm: "'IBM Plex Sans', sans-serif",
-            inter: "'Inter', sans-serif",
+            sfPro: "'SF Pro Text', sans-serif",
         },
         fontWeights: {
             regular: 400,

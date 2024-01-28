@@ -1,7 +1,7 @@
-export * from "./Text";
-export * from "./Input";
-export * from "./Pagination";
-export * from "./Drawer";
+export * from "./progress";
+export * from "./text";
+export * from "./input";
+export * from "./button";
 
-import * as Icons from "./Icon";
+import * as Icons from "./icons";
 export { Icons };

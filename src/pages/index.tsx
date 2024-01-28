@@ -1,12 +1,14 @@
+import { DateForm } from "@/features/date-form";
+import { RegistrationProgress } from "@/features/registration-progress";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
-import MyOrganization from "@/widgets/my-organization/my-organization";
 
 export default function Home() {
     return (
-        <>
+        <Layout>
             <Header />
-            <MyOrganization />
-        </>
+            <RegistrationProgress />
+            <DateForm />
+        </Layout>
     );
 }
