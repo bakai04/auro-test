@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { ErrorMessage, FormInner, From, InputWrapper, Wrapper } from "./styled";
-import { Button, Input, Text } from "@/shared/ui";
+import { Button, Text } from "@/shared/ui";
 import { Controller, useForm } from "react-hook-form";
 import {
     checkDateValidation,
@@ -9,6 +9,7 @@ import {
     formYearController,
 } from "@/shared/lib/date-controller";
 import { useClickOutside } from "@/shared/hook/use-click-outside";
+import { Input } from "@/shared/ui/input";
 
 export interface IDateFormValues {
     year: string;
