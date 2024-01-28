@@ -1,5 +1,5 @@
 export * from "./progress";
-export * from "./выфыв";
+export * from "./text";
 export * from "./button";
 
 import * as Icons from "./icons";

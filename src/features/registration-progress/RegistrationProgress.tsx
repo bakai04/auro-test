@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper } from "./styled";
 import { Progress } from "@/shared/ui";
-import { Text } from "@/shared/ui/выфыв";
+import { Text } from "@/shared/ui/text";
 
 export const RegistrationProgress = () => {
     return (
