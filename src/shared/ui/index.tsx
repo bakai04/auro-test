@@ -1,6 +1,6 @@
-import * as Icons from "./icons";
+import * as Icons from "./Icons";
 
-export * from "./progress";
-export * from "./button";
+export * from "./Progress";
+export * from "./Button";
 
 export { Icons };

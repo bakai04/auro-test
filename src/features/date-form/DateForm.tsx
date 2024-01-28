@@ -9,8 +9,8 @@ import {
     formYearController,
 } from "@/shared/lib/date-controller";
 import { useClickOutside } from "@/shared/hook/use-click-outside";
-import { Input } from "@/shared/ui/input";
-import { Text } from "@/shared/ui/text";
+import { Input } from "@/shared/ui/Input";
+import { Text } from "@/shared/ui/Text";
 
 export interface IDateFormValues {
     year: string;
