@@ -17,6 +17,7 @@ export const Progress = ({ value, ...props }: IProgressProps) => {
         const timer = setTimeout(() => setProgress(value), 300);
         return () => clearTimeout(timer);
     }, []);
+
     return (
         <ProgressContainer value={value} {...props}>
             <ProgressContainerWrapper>
