@@ -11,13 +11,13 @@ export const globalStyles = globalCss({
         height: "100vh",
         textRendering: "optimizeLegibility",
         fontSmooth: "always",
+        margin:"0px",
     },
     "*, :before, :after": {
         boxSizing: "border-box",
     },
     a: {
         textDecoration: "none",
-        display: "flex",
         alignItems: "center",
     },
     "h1, h2, h3, h4, h5, h6": {

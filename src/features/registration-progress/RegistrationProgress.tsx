@@ -2,13 +2,13 @@ import React from "react";
 import { Wrapper } from "./styled";
 import { Progress, Text } from "@/shared/ui";
 
-export const RegistrationProgress = () => {
+export const RegistrationProgress = ({page,percent}) => {
     return (
         <Wrapper>
             <Text variant={"caption1"} color={"blue"}>
-                2/9
+                {page}/9
             </Text>
-            <Progress value={22} />
+            <Progress value={percent} />
         </Wrapper>
     );
 };

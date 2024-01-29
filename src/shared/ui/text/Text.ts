@@ -3,7 +3,7 @@ import { styled } from "@/shared/theme/stitchesConfig";
 export const Text = styled("p", {
     fontFamily: "$sfPro",
     fontWeight: 500,
-    lineHeight: "$standard",
+    // lineHeight: "$standard",
     color: "$whiteBase",
     variants: {
         /**
@@ -38,6 +38,9 @@ export const Text = styled("p", {
             inherit: {
                 color: "inherit",
             },
+            greyishBlue: {
+                color:"$greyishBlue"
+            }
         },
 
         /**
@@ -70,6 +73,10 @@ export const Text = styled("p", {
                 fontSize: "$s15",
                 fontWeight: "$medium",
             },
+            heading2:{
+                fontSize:"$s5",
+                fontWeight:"$semibold",
+            },
 
             // Caption
             caption1: {
@@ -81,6 +88,32 @@ export const Text = styled("p", {
                 fontSize: "$s7",
                 fontWeight: "$regular",
             },
+            caption3:{
+                fontSize:"$s12",
+                fontWeight:"$regular",
+            },
+            caption4:{
+                fontSize:"$s8",
+                fontWeight:"$bold",
+            },
         },
+        /**
+         * line height
+         */
+        lineHeight: {
+            line36:{
+                lineHeight:"36px"
+            },
+            line18:{
+                lineHeight:"18px"
+            },
+            line28:{
+                lineHeight:"28px"
+            },
+            line30:{
+                lineHeight:"30px"
+            }
+        }
+
     },
 });

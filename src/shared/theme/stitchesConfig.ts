@@ -24,6 +24,7 @@ export const {
             buttonActive: "#fff",
             lightSilver: "#c7c7c7",
             coral: "#ff5c5d",
+            greyishBlue:"#8e8e93",
         },
         fonts: {
             sfPro: "'SF Pro Text', sans-serif",
