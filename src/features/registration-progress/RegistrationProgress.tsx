@@ -1,14 +1,27 @@
-import React from "react";
-import { Wrapper } from "./styled";
+import React, { useEffect } from "react";
+
 import { Progress, Text } from "@/shared/ui";
 
-export const RegistrationProgress = ({page,percent}) => {
-    return (
-        <Wrapper>
-            <Text variant={"caption1"} color={"blue"}>
-                {page}/9
-            </Text>
-            <Progress value={percent} />
-        </Wrapper>
-    );
+import { Wrapper } from "./styled";
+
+interface IRegistrationProgress {
+  page: number;
+  percent: number;
+}
+
+export const RegistrationProgress = ({
+  page,
+  percent,
+}: IRegistrationProgress) => {
+  useEffect(() => {
+    console.log(window.history);
+  }, []);
+  return (
+    <Wrapper>
+      <Text variant={"caption1"} color={"blue"}>
+        {page}/9
+      </Text>
+      <Progress value={percent} prevValue={1} />
+    </Wrapper>
+  );
 };

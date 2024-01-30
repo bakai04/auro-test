@@ -7,11 +7,11 @@ import Flex from "@/shared/ui/flex/Flex";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
-const RelationshipStatus = () => {
+const ResonatedElement = () => {
   return (
     <Layout>
       <Header />
-      <RegistrationProgress page={5} percent={55} />
+      <RegistrationProgress page={6} percent={66} />
       <Wrapper>
         <Flex
           justifyContent={"center"}
@@ -20,13 +20,8 @@ const RelationshipStatus = () => {
           flexDirection={"column"}
           alignItems={"center"}
         >
-          <Text
-            variant={"heading1"}
-            color={"midnightBlack"}
-            lineHeight={"line30"}
-          >
-            So we can get to know you better, please tell us your relationship
-            status.
+          <Text variant={"heading1"} color={"midnightBlack"}>
+            Which element resonates with you the most?
           </Text>
           <Flex
             justifyContent={"center"}
@@ -35,8 +30,18 @@ const RelationshipStatus = () => {
             flexDirection={"column"}
             alignItems={"center"}
           >
-            <Button type="button">Single</Button>
-            <Button type="button">In a relationship</Button>
+            <Button type="button">
+              <span>Earth</span>
+            </Button>
+            <Button type="button">
+              <span>Water</span>
+            </Button>
+            <Button type="button">
+              <span>Water</span>
+            </Button>
+            <Button type="button">
+              <span>Air</span>
+            </Button>
           </Flex>
         </Flex>
       </Wrapper>
@@ -44,4 +49,4 @@ const RelationshipStatus = () => {
   );
 };
 
-export default RelationshipStatus;
+export default ResonatedElement;

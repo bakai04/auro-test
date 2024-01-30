@@ -7,11 +7,11 @@ import Flex from "@/shared/ui/flex/Flex";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
-const RelationshipStatus = () => {
+const Decisions = () => {
   return (
     <Layout>
       <Header />
-      <RegistrationProgress page={5} percent={55} />
+      <RegistrationProgress page={8} percent={88} />
       <Wrapper>
         <Flex
           justifyContent={"center"}
@@ -25,8 +25,7 @@ const RelationshipStatus = () => {
             color={"midnightBlack"}
             lineHeight={"line30"}
           >
-            So we can get to know you better, please tell us your relationship
-            status.
+            Do you make decisions with your head or your heart?
           </Text>
           <Flex
             justifyContent={"center"}
@@ -35,8 +34,9 @@ const RelationshipStatus = () => {
             flexDirection={"column"}
             alignItems={"center"}
           >
-            <Button type="button">Single</Button>
-            <Button type="button">In a relationship</Button>
+            <Button type="button">Heart</Button>
+            <Button type="button">Head</Button>
+            <Button type="button">Both</Button>
           </Flex>
         </Flex>
       </Wrapper>
@@ -44,4 +44,4 @@ const RelationshipStatus = () => {
   );
 };
 
-export default RelationshipStatus;
+export default Decisions;

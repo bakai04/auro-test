@@ -1,17 +1,18 @@
 import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
-import { Wrapper } from "@/pages/palmistry/styled";
+import { BlueSpan, Wrapper } from "@/pages/palmistry/styled";
 import { Button, Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { HeadAndHeart } from "@/shared/ui/icons";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
-const RelationshipStatus = () => {
+const GuidancePlan = () => {
   return (
     <Layout>
       <Header />
-      <RegistrationProgress page={5} percent={55} />
+      <RegistrationProgress page={9} percent={100} />
       <Wrapper>
         <Flex
           justifyContent={"center"}
@@ -20,23 +21,26 @@ const RelationshipStatus = () => {
           flexDirection={"column"}
           alignItems={"center"}
         >
+          <HeadAndHeart />
           <Text
-            variant={"heading1"}
+            variant={"caption4"}
+            textCenter
             color={"midnightBlack"}
             lineHeight={"line30"}
           >
-            So we can get to know you better, please tell us your relationship
-            status.
+            Based on our data, 27% of <BlueSpan>Aquarius Sun</BlueSpan> people
+            also make decisions with their Heart. But don&apos;t worry,
+            we&apos;ll consider that while creating your guidance plan.
           </Text>
           <Flex
             justifyContent={"center"}
             gap={"12px"}
             flex={"flex"}
-            flexDirection={"column"}
+            flexDirection={"row"}
             alignItems={"center"}
           >
-            <Button type="button">Single</Button>
-            <Button type="button">In a relationship</Button>
+            <Button type="button">Back</Button>
+            <Button type="button">Next</Button>
           </Flex>
         </Flex>
       </Wrapper>
@@ -44,4 +48,4 @@ const RelationshipStatus = () => {
   );
 };
 
-export default RelationshipStatus;
+export default GuidancePlan;
