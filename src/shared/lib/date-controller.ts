@@ -26,7 +26,7 @@ export const formDayController = (value: string, formData: IDateFormValues) => {
   const daysInMonth = getDaysInMonth(+formData.month, +formData.year || 2024);
 
   switch (true) {
-    case !isNumericString(lastValue):
+    case !isNumericString(lastValue || ""):
       return prevValue;
     case value === "0":
       return "";
@@ -44,7 +44,7 @@ export const formMonthController = (value: string) => {
   const lastValue = value[value.length - 1];
 
   switch (true) {
-    case !isNumericString(lastValue):
+    case !isNumericString(lastValue || ""):
       return prevValue;
     case value === "0":
       return "";
@@ -61,7 +61,7 @@ export const formYearController = (value: string) => {
   const prevValue = value.slice(0, -1);
   const lastValue = value[value.length - 1];
 
-  if (!isNumericString(lastValue)) {
+  if (!isNumericString(lastValue || "")) {
     return prevValue;
   }
   if (+value > 2024) {
