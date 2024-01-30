@@ -20,7 +20,7 @@ const RelationshipStatus = () => {
                         <Button type="button">
                             Single
                         </Button>
-                        <Button type="button" >
+                        <Button type="button">
                             In a relationship
                         </Button>
                     </Flex>
