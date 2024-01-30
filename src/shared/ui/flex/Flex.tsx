@@ -1,27 +1,27 @@
-import { CSSProperties } from '@stitches/react';
-import React, { forwardRef, useMemo } from 'react';
-import {styled} from "@/shared/theme/stitchesConfig";
-import useDevice from "@/shared/hook/useDevice";
+import type { CSSProperties } from "@stitches/react";
+import React, { forwardRef, useMemo } from "react";
 
+import { useDevice } from "@/shared/hook/useDevice";
+import { styled } from "@/shared/theme/stitchesConfig";
 
-const Flex = styled('div', {
-  display: 'flex',
+const Flex = styled("div", {
+  display: "flex",
 });
 
 type ComponentProps = React.ComponentProps<typeof Flex>;
 type ComponentCSSProp = Pick<
   CSSProperties,
-  | 'alignContent'
-  | 'alignItems'
-  | 'justifyContent'
-  | 'gap'
-  | 'flexFlow'
-  | 'flexShrink'
-  | 'flexWrap'
-  | 'flex'
-  | 'flexDirection'
-  | 'flexBasis'
-  | 'flexGrow'
+  | "alignContent"
+  | "alignItems"
+  | "justifyContent"
+  | "gap"
+  | "flexFlow"
+  | "flexShrink"
+  | "flexWrap"
+  | "flex"
+  | "flexDirection"
+  | "flexBasis"
+  | "flexGrow"
 >;
 
 type FlexBoxContainerProps = ComponentProps &
@@ -55,11 +55,7 @@ const FlexBox = forwardRef<HTMLDivElement, FlexBoxContainerProps>(
     innerRef,
   ) => {
     const { desktop, phone, tablet } = useDevice();
-    const hasDevices = ![
-      xs,
-      md,
-      lg,
-    ].some((x) => x);
+    const hasDevices = ![xs, md, lg].some((x) => x);
 
     const childrens = useMemo(() => {
       if (hasDevices) {
@@ -79,16 +75,7 @@ const FlexBox = forwardRef<HTMLDivElement, FlexBoxContainerProps>(
       }
 
       return null;
-    }, [
-      lg,
-      xs,
-      md,
-      desktop,
-      tablet,
-      phone,
-      children,
-      hasDevices,
-    ]);
+    }, [lg, xs, md, desktop, tablet, phone, children, hasDevices]);
 
     const flexProperties = {
       justifyContent,
