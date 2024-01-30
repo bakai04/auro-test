@@ -2,13 +2,17 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { BlueSpan, Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
 import { HeadAndHeart } from "@/shared/ui/icons";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const GuidancePlan = () => {
+  const { nextPage, prevPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -39,8 +43,23 @@ const GuidancePlan = () => {
             flexDirection={"row"}
             alignItems={"center"}
           >
-            <Button type="button">Back</Button>
-            <Button type="button">Next</Button>
+            <RadioButton
+              onClick={prevPage}
+              id={"Back"}
+              value={"Back"}
+              name={"guidance"}
+            >
+              Back
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Next"}
+              value={"Next"}
+              name={"guidance"}
+              checked
+            >
+              Next
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

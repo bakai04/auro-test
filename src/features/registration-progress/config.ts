@@ -1,22 +1,26 @@
 export const REGISTRETION_STEPS = [
   {
     page: "/palmistry/welcome",
-    step: 1,
+    step: 0,
   },
   {
     page: "/palmistry/gender",
-    step: 2,
+    step: 1,
   },
   {
     page: "/palmistry/birthday",
-    step: 3,
+    step: 2,
   },
   {
     page: "/palmistry/palms-hold",
-    step: 4,
+    step: 3,
   },
   {
     page: "/palmistry/wish",
+    step: 4,
+  },
+  {
+    page: "/palmistry/relationship-status",
     step: 5,
   },
   {

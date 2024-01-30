@@ -2,12 +2,16 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const Wish = () => {
+  const { nextPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -34,10 +38,32 @@ const Wish = () => {
             flex={"flex"}
             flexDirection={"column"}
             alignItems={"center"}
+            css={{ width: "100%", maxWidth: "400px" }}
           >
-            <Button type="button">Love & Relationship</Button>
-            <Button type="button">Health & Vitality</Button>
-            <Button type="button">Career & Destiny</Button>
+            <RadioButton
+              onClick={nextPage}
+              id={"wish1"}
+              value={"wqert1"}
+              name={"wish"}
+            >
+              Love & Relationship
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"wish2"}
+              value={"wqert2"}
+              name={"wish"}
+            >
+              Health & Vitality
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"wish3"}
+              value={"wqert3"}
+              name={"wish"}
+            >
+              Career & Destiny
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

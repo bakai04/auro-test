@@ -2,12 +2,16 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const RelationshipStatus = () => {
+  const { nextPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -34,9 +38,24 @@ const RelationshipStatus = () => {
             flex={"flex"}
             flexDirection={"column"}
             alignItems={"center"}
+            css={{ width: "100%", maxWidth: "400px" }}
           >
-            <Button type="button">Single</Button>
-            <Button type="button">In a relationship</Button>
+            <RadioButton
+              onClick={nextPage}
+              id={"Single"}
+              value={"Single"}
+              name={"relationshipStatus"}
+            >
+              Single
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"In-a-relationship"}
+              value={"In-a-relationship"}
+              name={"relationshipStatus"}
+            >
+              In a relationship
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

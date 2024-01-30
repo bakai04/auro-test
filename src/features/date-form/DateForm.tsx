@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { useClickOutside } from "@/shared/hook/use-click-outside";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
 import {
   checkDateValidation,
   formDayController,
@@ -29,6 +30,7 @@ export const DateForm = () => {
     },
     shouldUnregister: true,
   });
+  const { nextPage } = useRegistrationSteps();
 
   const {
     control,
@@ -127,7 +129,7 @@ export const DateForm = () => {
             Date not found. Please check your details and try again.
           </ErrorMessage>
         </FormInner>
-        <Button type="submit" disabled={!isFormValid}>
+        <Button onClick={nextPage} type="submit" disabled={!isFormValid}>
           Next
         </Button>
       </From>

@@ -2,6 +2,7 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { LinkStyled, Wrapper } from "@/pages/palmistry/styled";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
 import { Button, Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
 import { AstralHand } from "@/shared/ui/icons";
@@ -9,6 +10,8 @@ import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const PalmsHold = () => {
+  const { nextPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -38,7 +41,9 @@ const PalmsHold = () => {
             flexDirection={"column"}
             alignItems={"center"}
           >
-            <Button type="button">Continue</Button>
+            <Button onClick={nextPage} type="button">
+              Continue
+            </Button>
             <Flex
               justifyContent={"center"}
               gap={"6px"}

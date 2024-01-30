@@ -2,12 +2,17 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { AirIcon, EarthIcon, FireIcon, WaterIcon } from "@/shared/ui/icons";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const ResonatedElement = () => {
+  const { nextPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -25,23 +30,68 @@ const ResonatedElement = () => {
           </Text>
           <Flex
             justifyContent={"center"}
-            gap={"12px"}
+            gap={"6px"}
             flex={"flex"}
             flexDirection={"column"}
             alignItems={"center"}
+            css={{ width: "100%", maxWidth: "400px" }}
           >
-            <Button type="button">
-              <span>Earth</span>
-            </Button>
-            <Button type="button">
-              <span>Water</span>
-            </Button>
-            <Button type="button">
-              <span>Water</span>
-            </Button>
-            <Button type="button">
-              <span>Air</span>
-            </Button>
+            <RadioButton
+              onClick={nextPage}
+              id={"Earth"}
+              value={"Earth"}
+              name={"element"}
+              css={{
+                display: "flex",
+                gap: "24px",
+                justifyContent: "flex-start",
+              }}
+            >
+              <EarthIcon />
+              Earth
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Water"}
+              value={"Water"}
+              name={"element"}
+              css={{
+                display: "flex",
+                gap: "24px",
+                justifyContent: "flex-start",
+              }}
+            >
+              <WaterIcon />
+              Water
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Fire"}
+              value={"Fire"}
+              name={"element"}
+              css={{
+                display: "flex",
+                gap: "24px",
+                justifyContent: "flex-start",
+              }}
+            >
+              <FireIcon />
+              Fire
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Air"}
+              value={"Air"}
+              name={"element"}
+              css={{
+                display: "flex",
+                gap: "24px",
+                justifyContent: "flex-start",
+              }}
+            >
+              <AirIcon />
+              Air
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

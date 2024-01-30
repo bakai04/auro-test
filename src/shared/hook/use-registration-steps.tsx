@@ -16,14 +16,14 @@ export const useRegistrationSteps = () => {
 
   const nextPage = () => {
     const nextSteps = REGISTRETION_STEPS.find(
-      (step) => step.step === currentPage + 1,
+      (step) => step?.step === currentPage + 1,
     );
     router.push(nextSteps.page);
   };
 
   const prevPage = () => {
     const nextSteps = REGISTRETION_STEPS.find(
-      (step) => step.step === currentPage - 1,
+      (step) => step?.step === currentPage - 1,
     );
     router.push(nextSteps.page);
   };

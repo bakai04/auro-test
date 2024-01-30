@@ -2,12 +2,16 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const Decisions = () => {
+  const { nextPage } = useRegistrationSteps();
+
   return (
     <Layout>
       <Header />
@@ -33,10 +37,32 @@ const Decisions = () => {
             flex={"flex"}
             flexDirection={"column"}
             alignItems={"center"}
+            css={{ width: "100%" }}
           >
-            <Button type="button">Heart</Button>
-            <Button type="button">Head</Button>
-            <Button type="button">Both</Button>
+            <RadioButton
+              onClick={nextPage}
+              id={"Heart"}
+              value={"Heart"}
+              name={"decisions "}
+            >
+              Heart
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Head"}
+              value={"Head"}
+              name={"decisions "}
+            >
+              Head
+            </RadioButton>
+            <RadioButton
+              onClick={nextPage}
+              id={"Both"}
+              value={"Both"}
+              name={"decisions "}
+            >
+              Both
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

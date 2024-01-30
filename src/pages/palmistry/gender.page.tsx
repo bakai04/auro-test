@@ -2,12 +2,16 @@ import React from "react";
 
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Wrapper } from "@/pages/palmistry/styled";
-import { Button, Text } from "@/shared/ui";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
+import { RadioButton } from "@/shared/ui/radioButton";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
 
 const Gender = () => {
+  const { nextPage } = useRegistrationSteps();
+
   // // Используйте useState для отслеживания выбранного пола
   // const [gender, setGender] = useState(1);
   //
@@ -69,8 +73,23 @@ const Gender = () => {
             alignItems={"center"}
           >
             {/* Передайте соответствующий пол в функцию handleButtonClick */}
-            <Button type="button">Male</Button>
-            <Button type="button">Female</Button>
+            <RadioButton
+              id={"male"}
+              value={"male"}
+              name={"gender"}
+              onClick={nextPage}
+            >
+              Male
+            </RadioButton>
+
+            <RadioButton
+              id={"Female"}
+              value={"Female"}
+              name={"gender"}
+              onClick={nextPage}
+            >
+              Female
+            </RadioButton>
           </Flex>
         </Flex>
       </Wrapper>

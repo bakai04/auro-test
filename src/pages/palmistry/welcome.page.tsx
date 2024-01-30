@@ -10,7 +10,7 @@ import { Layout } from "@/widgets/layout";
 import { LinkStyled, Wrapper } from "./styled";
 
 const Welcome = () => {
-  const { nextPage, prevPage } = useRegistrationSteps();
+  const { nextPage } = useRegistrationSteps();
 
   return (
     <Layout>
@@ -39,7 +39,10 @@ const Welcome = () => {
             flexDirection={"column"}
             alignItems={"center"}
           >
-            <Button type="button">Let’s Begin</Button>
+            <Button onClick={nextPage} type="button">
+              Let’s Begin
+            </Button>
+
             <Flex
               justifyContent={"center"}
               gap={"6px"}
