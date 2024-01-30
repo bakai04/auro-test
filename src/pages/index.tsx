@@ -2,12 +2,12 @@ import { DateForm } from "@/features/date-form";
 import { RegistrationProgress } from "@/features/registration-progress";
 import { Header } from "@/widgets/header";
 import { Layout } from "@/widgets/layout";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
 export default function Home() {
     useEffect(() => {
-        const currentState = JSON.parse(localStorage.getItem('state'));
-        if(!currentState){
+        const currentState = JSON.parse(localStorage.getItem("state") || "");
+        if (!currentState) {
             const localState = {
                 state: {
                     funnel: "",
@@ -27,7 +27,7 @@ export default function Home() {
                         "scan-photo",
                         "email",
                         "subscription-plan",
-                        "paywall"
+                        "paywall",
                     ],
                     relationship: 2,
                     gender: 2,
@@ -35,35 +35,34 @@ export default function Home() {
                     birthday: {
                         year: {
                             value: "",
-                            displayValue: ""
+                            displayValue: "",
                         },
                         month: {
                             value: "",
-                            displayValue: ""
+                            displayValue: "",
                         },
                         day: {
                             value: "",
-                            displayValue: ""
-                        }
+                            displayValue: "",
+                        },
                     },
                     photoData: null,
                     emailUser: "",
                     gtagClientId: null,
                     planCodeData: {
                         planCode: "",
-                        count: 0
+                        count: 0,
                     },
                     wish: 1,
                     resonatedElement: "",
                     colorYouLike: "",
-                    decision: ""
+                    decision: "",
                 },
-                version: 0
-            }
-            localStorage.setItem('state', JSON.stringify(localState.state));
+                version: 0,
+            };
+            localStorage.setItem("state", JSON.stringify(localState.state));
         }
-
-    },[])
+    }, []);
     return (
         <Layout>
             <Header />
