@@ -1,4 +1,4 @@
-export const REGISTRETION_STEPS = [
+export const REGISTRETION_PROCCESS = [
   {
     page: "/palmistry/welcome",
     step: 0,

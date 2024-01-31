@@ -1,9 +1,6 @@
 import { DateForm } from "@/features/date-form";
-import { RegistrationProgress } from "@/features/registration-progress";
-import { Header } from "@/widgets/header";
-import { Layout } from "@/widgets/layout";
 
-export default function Home() {
+export default function Birthday() {
   // useEffect(() => {
   //   const currentState = JSON.parse(localStorage.getItem("state") || "");
   //   if (!currentState) {
@@ -62,11 +59,5 @@ export default function Home() {
   //     localStorage.setItem("state", JSON.stringify(localState.state));
   //   }
   // }, []);
-  return (
-    <Layout>
-      <Header />
-      <RegistrationProgress page={2} percent={22} />
-      <DateForm />
-    </Layout>
-  );
+  return <DateForm />;
 }

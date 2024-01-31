@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { useClickOutside } from "@/shared/hook/use-click-outside";
-import { useRegistrationSteps } from "@/shared/hook/use-registration-steps";
+import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import {
   checkDateValidation,
   formDayController,

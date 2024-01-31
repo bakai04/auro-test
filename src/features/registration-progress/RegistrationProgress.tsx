@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Progress, Text } from "@/shared/ui";
 
@@ -13,9 +13,6 @@ export const RegistrationProgress = ({
   page,
   percent,
 }: IRegistrationProgress) => {
-  useEffect(() => {
-    console.log(window.history);
-  }, []);
   return (
     <Wrapper>
       <Text variant={"caption1"} color={"blue"}>
