@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
@@ -9,6 +10,11 @@ import { Wrapper } from "./styled";
 
 const Wish = () => {
   const { nextPage } = useRegistrationSteps();
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push("/palmistry/resonated-element");
+  };
 
   return (
     <Wrapper>
@@ -44,7 +50,7 @@ const Wish = () => {
             Love & Relationship
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={handleRedirect}
             id={"wish2"}
             value={"wqert2"}
             name={"wish"}
@@ -52,7 +58,7 @@ const Wish = () => {
             Health & Vitality
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={handleRedirect}
             id={"wish3"}
             value={"wqert3"}
             name={"wish"}

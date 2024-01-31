@@ -39,4 +39,12 @@ export const REGISTRETION_PROCCESS = [
     page: "/palmistry/guidance-plan",
     step: 9,
   },
+  {
+    page: "/palmistry/scan-info",
+    step: 10,
+  },
+  {
+    page: "/palmistry/upload",
+    step: 11,
+  },
 ];

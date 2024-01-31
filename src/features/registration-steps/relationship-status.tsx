@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
-import { Button, Text } from "@/shared/ui";
+import { RadioButton, Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
 
 import { Wrapper } from "./styled";
@@ -32,13 +32,24 @@ const RelationshipStatus = () => {
           flex={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
+          css={{ width: "100%", maxWidth: "400px" }}
         >
-          <Button onClick={nextPage} type="button">
+          <RadioButton
+            onClick={nextPage}
+            id={"Single"}
+            value={"Single"}
+            name={"relationshipStatus"}
+          >
             Single
-          </Button>
-          <Button onClick={nextPage} type="button">
+          </RadioButton>
+          <RadioButton
+            onClick={nextPage}
+            id={"In a relationship"}
+            value={"In a relationship"}
+            name={"relationshipStatus"}
+          >
             In a relationship
-          </Button>
+          </RadioButton>
         </Flex>
       </Flex>
     </Wrapper>

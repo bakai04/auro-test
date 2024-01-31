@@ -14,6 +14,11 @@ export const Text = styled("p", {
         textAlign: "center",
       },
     },
+    textStart: {
+      true: {
+        textAlign: "start",
+      },
+    },
     textLeft: {
       true: {
         textAlign: "left",
@@ -95,6 +100,10 @@ export const Text = styled("p", {
       caption4: {
         fontSize: "$s8",
         fontWeight: "$bold",
+      },
+      caption5: {
+        fontSize: "$s10",
+        fontWeight: "$regular",
       },
     },
     /**

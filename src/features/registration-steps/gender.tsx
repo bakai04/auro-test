@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import { Text } from "@/shared/ui";
@@ -9,6 +9,37 @@ import { Wrapper } from "./styled";
 
 const Gender = () => {
   const { nextPage } = useRegistrationSteps();
+  const [selectedGender, setSelectedGender] = useState("");
+
+  useEffect(() => {
+    // Retrieve the current gender value from localStorage on component mount
+    const currentStateString = localStorage.getItem("state") || "";
+    const currentState = JSON.parse(currentStateString);
+
+    if (currentState && currentState.state && currentState.state.gender) {
+      setSelectedGender(
+        currentState.state.gender === "male" ? "male" : "Female",
+      );
+    }
+  }, []);
+
+  // const createState = (gender) => {
+  // const currentStateString = localStorage.getItem("state") || "";
+  // let currentState = JSON.parse(currentStateString);
+  //
+  // if (!currentState) {
+  //   currentState = {
+  //     state: {},
+  //     version: 0,
+  //   };
+  // }
+  //
+  // currentState.state.gender = gender;
+  //
+  // localStorage.setItem("state", JSON.stringify(currentState));
+  //   nextPage();
+  // };
+
   return (
     <Wrapper>
       <Flex
@@ -36,22 +67,24 @@ const Gender = () => {
           flex={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
+          css={{ width: "100%", maxWidth: "400px" }}
         >
-          {/* Передайте соответствующий пол в функцию handleButtonClick */}
           <RadioButton
             id={"male"}
             value={"male"}
             name={"gender"}
-            onClick={nextPage}
+            checked={selectedGender === "male"}
+            onClick={() => nextPage()}
           >
             Male
           </RadioButton>
 
           <RadioButton
-            id={"Female"}
-            value={"Female"}
+            id={"female"}
+            value={"female"}
             name={"gender"}
-            onClick={nextPage}
+            checked={selectedGender === "female"}
+            onClick={() => nextPage()}
           >
             Female
           </RadioButton>

@@ -6,4 +6,6 @@ export { default as FireIcon } from "./fire.svg";
 export { default as HeadAndHeart } from "./head-and-heart.svg";
 export { default as Logo } from "./logo.svg";
 export { default as ScanningHand } from "./scanning-hand.svg";
+export { default as ScanningHandWithShadow } from "./scanning-hand-with-shadow.svg";
+export { default as ShieldIcon } from "./shield.svg";
 export { default as WaterIcon } from "./water.svg";

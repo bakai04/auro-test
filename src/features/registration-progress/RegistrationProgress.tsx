@@ -14,11 +14,15 @@ export const RegistrationProgress = ({
   percent,
 }: IRegistrationProgress) => {
   return (
-    <Wrapper>
-      <Text variant={"caption1"} color={"blue"}>
-        {page}/9
-      </Text>
-      <Progress value={percent} prevValue={1} />
-    </Wrapper>
+    <>
+      {page < 10 && page !== 0 && (
+        <Wrapper>
+          <Text variant={"caption1"} color={"blue"}>
+            {page}/9
+          </Text>
+          <Progress value={percent} prevValue={1} />
+        </Wrapper>
+      )}
+    </>
   );
 };

@@ -6,6 +6,8 @@ import GuidancePlan from "@/features/registration-steps/guidance-plan";
 import PalmsHold from "@/features/registration-steps/palms-hold";
 import RelationshipStatus from "@/features/registration-steps/relationship-status";
 import ResonatedElement from "@/features/registration-steps/resonated-element";
+import ScanInfo from "@/features/registration-steps/scan-info";
+import Upload from "@/features/registration-steps/upload";
 import Welcome from "@/features/registration-steps/welcome";
 import Wish from "@/features/registration-steps/wish";
 
@@ -59,5 +61,15 @@ export const REGISTRETION_PROCCESS = [
     page: "/palmistry/guidance-plan",
     component: <GuidancePlan />,
     step: 9,
+  },
+  {
+    page: "/palmistry/scan-info",
+    component: <ScanInfo />,
+    step: 10,
+  },
+  {
+    page: "/palmistry/upload",
+    component: <Upload />,
+    step: 10,
   },
 ];

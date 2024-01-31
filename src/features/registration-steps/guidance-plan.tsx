@@ -9,7 +9,7 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { BlueSpan, Wrapper } from "./styled";
 
 const GuidancePlan = () => {
-  const { prevPage } = useRegistrationSteps();
+  const { prevPage, nextPage } = useRegistrationSteps();
 
   return (
     <Wrapper>
@@ -46,7 +46,13 @@ const GuidancePlan = () => {
           >
             Back
           </RadioButton>
-          <RadioButton id={"Next"} value={"Next"} name={"guidance"} checked>
+          <RadioButton
+            onClick={nextPage}
+            id={"Next"}
+            value={"Next"}
+            name={"guidance"}
+            checked
+          >
             Next
           </RadioButton>
         </Flex>

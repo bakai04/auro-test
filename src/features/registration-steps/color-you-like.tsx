@@ -26,7 +26,7 @@ const ColorYouLike = () => {
         </Text>
         <Flex
           justifyContent={"center"}
-          gap={"12px"}
+          gap={"6px"}
           flex={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
