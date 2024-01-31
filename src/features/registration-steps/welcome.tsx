@@ -68,7 +68,9 @@ const Welcome = () => {
         localStorage.setItem("state", JSON.stringify(localState.state));
       }
       nextPage();
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
