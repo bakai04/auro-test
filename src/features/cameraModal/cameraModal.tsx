@@ -19,7 +19,6 @@ const CameraModal = (props: ICameraModal) => {
   const takePhoto = () => {
     const canvas = document.createElement("canvas");
     if (videoRef.current) {
-      // Установка размеров холста
       canvas.width = 500;
       canvas.height = 500;
 
@@ -34,9 +33,9 @@ const CameraModal = (props: ICameraModal) => {
             fileReader.onload = (event) => {
               if (event.target && typeof event.target.result === "string") {
                 console.log("ImageDataUrl:", event.target.result);
-                localStorage.setItem("capturedImage", event.target.result);
-                closeCamera();
+
                 props.close();
+                localStorage.setItem("capturedImage", event.target.result);
               }
             };
             fileReader.readAsDataURL(blob);
@@ -76,8 +75,8 @@ const CameraModal = (props: ICameraModal) => {
     return () => {
       // Cleanup при размонтировании компонента
       if (videoRef.current) {
-        const stream = videoRef.current.srcObject;
-        const tracks = stream?.getTracks() || [];
+        const tracks =
+          (videoRef.current.srcObject as MediaStream)?.getTracks() || [];
         tracks.forEach((track) => track.stop());
         videoRef.current.srcObject = null;
       }
@@ -87,7 +86,6 @@ const CameraModal = (props: ICameraModal) => {
   return (
     <Modal
       onClose={props.close}
-      width={1000}
       css={{
         background: "unset",
         borderRadius: "8px",
