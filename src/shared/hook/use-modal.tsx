@@ -80,9 +80,12 @@ export const useModal = <
 
 export const ModalsRoot = () => {
   // @ts-ignore
-  const state = useCurrentModal();
+  const stateLocal = useCurrentModal();
   if (!state.modal) return null;
   return (
-    <state.modal close={() => Modals.close(state.modal)} {...state.props} />
+    <state.modal
+      close={() => Modals.close(stateLocal.modal)}
+      {...stateLocal.props}
+    />
   );
 };
