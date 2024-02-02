@@ -19,7 +19,6 @@ const GuidancePlan: React.FC = () => {
   const [descusionState, setDescusionState] = useState<string>("");
 
   const determineZodiacSign = (day: IData, month: IData): string => {
-    console.log(day, month);
     const astrologicalDates: {
       start: [number, number];
       end: [number, number];
@@ -99,12 +98,14 @@ const GuidancePlan: React.FC = () => {
           flex={"flex"}
           flexDirection={"row"}
           alignItems={"center"}
+          css={{ width: "100%" }}
         >
           <RadioButton
             onClick={prevPage}
             id={"Back"}
             value={"Back"}
             name={"guidance"}
+            css={{ width: "100%" }}
           >
             Back
           </RadioButton>
@@ -112,6 +113,7 @@ const GuidancePlan: React.FC = () => {
             onClick={nextPage}
             id={"Next"}
             value={"Next"}
+            css={{ width: "100%" }}
             name={"guidance"}
             checked
           >

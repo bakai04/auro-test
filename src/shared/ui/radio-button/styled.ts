@@ -26,7 +26,6 @@ export const StyledLabel = styled("label", {
   justifyContent: "center",
   maxWidth: "400px",
   minHeight: "60px",
-  minWidth: "250px",
   padding: "0 24px",
   width: "100%",
   webkitUserSelect: "none",

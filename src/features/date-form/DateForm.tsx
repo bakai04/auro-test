@@ -64,8 +64,8 @@ export const DateForm = () => {
   const startValidation = async () => {
     const { year, month, day } = getValues();
     const isValidDate = checkDateValidation(+year, +month, +day);
-    trigger();
-    setIsValid(isValidDate);
+    const isValidTrigger = await trigger();
+    setIsValid(isValidDate && isValidTrigger);
   };
 
   const onSubmit = async (data: IDateFormValues) => {
@@ -103,10 +103,7 @@ export const DateForm = () => {
           },
         };
 
-        // Update local storage using the hook
         setSelectedDate(currentState.birthday);
-
-        // localStorage.setItem("state", JSON.stringify(currentState)); // This line is not needed, as the hook updates the state
       }
 
       nextPage();
@@ -142,10 +139,11 @@ export const DateForm = () => {
                   placeholder="YYYY"
                   value={field.value}
                   name="year"
+                  onBlur={startValidation}
                   label="Year"
-                  onChange={(e) =>
-                    field.onChange(formYearController(e.target.value))
-                  }
+                  onChange={(e) => {
+                    field.onChange(formYearController(e.target.value));
+                  }}
                 />
               )}
             />
@@ -159,6 +157,7 @@ export const DateForm = () => {
                 <Input
                   value={field.value}
                   placeholder="MM"
+                  onBlur={startValidation}
                   label="Month"
                   onChange={(e) =>
                     field.onChange(formMonthController(e.target.value))
@@ -175,13 +174,14 @@ export const DateForm = () => {
               render={({ field }) => (
                 <Input
                   placeholder="DD"
+                  onBlur={startValidation}
                   value={field.value}
-                  onFocus={() => setIsValid(true)}
-                  onChange={(e) =>
+                  onChange={(e) => {
+                    startValidation();
                     field.onChange(
                       formDayController(e.target.value, getValues()),
-                    )
-                  }
+                    );
+                  }}
                   label="Day"
                 />
               )}
