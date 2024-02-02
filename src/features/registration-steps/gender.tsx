@@ -9,17 +9,16 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { Wrapper } from "./styled";
 
 const Gender = () => {
-  const [selectedGender, setSelectedGender] = useLocalStorageState(
-    "gender",
-    "",
-  );
+  const [selectedGender, setSelectedGender] = useLocalStorageState({
+    key: "gender",
+  });
   const { nextPage } = useRegistrationSteps();
 
   useEffect(() => {
     // No need to fetch from local storage here, it's handled by useLocalStorageState
   }, []);
 
-  const createState = (gender) => {
+  const createState = (gender: string) => {
     setSelectedGender(gender);
     nextPage();
   };

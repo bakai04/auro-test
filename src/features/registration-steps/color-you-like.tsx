@@ -10,13 +10,12 @@ import { Circle } from "@/shared/ui/сircle";
 import { Wrapper } from "./styled";
 
 const ColorYouLike = () => {
-  const [selectedColor, setSelectedColor] = useLocalStorageState(
-    "colorYouLike",
-    "",
-  );
+  const [selectedColor, setSelectedColor] = useLocalStorageState({
+    key: "colorYouLike",
+  });
   const { nextPage } = useRegistrationSteps();
 
-  const handleRadioButtonClick = (color) => {
+  const handleRadioButtonClick = (color: string) => {
     try {
       setSelectedColor(color);
       nextPage();

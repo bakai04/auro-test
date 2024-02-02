@@ -9,13 +9,12 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { Wrapper } from "./styled";
 
 const Decisions = () => {
-  const [selectedDecision, setSelectedDecision] = useLocalStorageState(
-    "decision",
-    "",
-  );
+  const [selectedDecision, setSelectedDecision] = useLocalStorageState({
+    key: "decision",
+  });
   const { nextPage } = useRegistrationSteps();
 
-  const handleRadioButtonClick = (decision) => {
+  const handleRadioButtonClick = (decision: string) => {
     try {
       setSelectedDecision(decision);
       nextPage();

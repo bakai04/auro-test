@@ -42,7 +42,7 @@ export const DateForm = () => {
     formState: { isValid: isFormValid },
   } = formMethods;
 
-  const [, setSelectedDate] = useLocalStorageState("birthday", {}); // Using "birthday" as the key
+  const [, setSelectedDate] = useLocalStorageState({ key: "birthday" }); // Using "birthday" as the key
 
   useEffect(() => {
     // Retrieve the current date values from localStorage on component mount

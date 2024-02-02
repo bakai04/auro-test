@@ -23,7 +23,6 @@ const UploadModal = (props: IUploadModal) => {
     <>
       <Modal
         onClose={props.close}
-        width={1000}
         css={{
           background: "$mainGradient",
           borderRadius: "8px",

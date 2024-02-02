@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
 
-export const useLocalStorageState = (key, initialValue) => {
+interface UseLocalStorageStateOptions {
+  key?: string;
+  initialValue?: string;
+}
+
+export const useLocalStorageState = (
+  options: UseLocalStorageStateOptions,
+): [string, (val: string | ((val: string) => string)) => void] => {
   const currentStateString = localStorage.getItem("state") || "";
   const currentState = JSON.parse(currentStateString);
   const [value, setValue] = useState(
-    currentState && currentState[key] ? currentState[key] : initialValue,
+    currentState && currentState[options?.key || ""]
+      ? currentState[options?.key || ""]
+      : options.initialValue,
   );
 
   useEffect(() => {
     if (currentState) {
       try {
-        currentState[key] = value;
+        currentState[options?.key || ""] = value;
         localStorage.setItem("state", JSON.stringify(currentState));
       } catch (e) {
         console.log(e);

@@ -9,13 +9,12 @@ import { AirIcon, EarthIcon, FireIcon, WaterIcon } from "@/shared/ui/icons";
 import { Wrapper } from "./styled";
 
 const ResonatedElement = () => {
-  const [selectedElement, setSelectedElement] = useLocalStorageState(
-    "resonatedElement",
-    "",
-  );
+  const [selectedElement, setSelectedElement] = useLocalStorageState({
+    key: "resonatedElement",
+  });
   const { nextPage } = useRegistrationSteps();
 
-  const handleRadioButtonClick = (element) => {
+  const handleRadioButtonClick = (element: string) => {
     try {
       setSelectedElement(element);
       nextPage();

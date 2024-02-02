@@ -8,12 +8,23 @@ import { RadioButton } from "@/shared/ui/radio-button";
 
 import { BlueSpan, Wrapper } from "./styled";
 
-const GuidancePlan = () => {
+interface IData {
+  value: number | string;
+  displayValue: number | string;
+}
+
+const GuidancePlan: React.FC = () => {
   const { prevPage, nextPage } = useRegistrationSteps();
-  const [zodiacSign, setZodiacSign] = useState("");
-  const [descusionState, setDescusionState] = useState("");
-  const determineZodiacSign = (day, month) => {
-    const astrologicalDates = [
+  const [zodiacSign, setZodiacSign] = useState<string>("");
+  const [descusionState, setDescusionState] = useState<string>("");
+
+  const determineZodiacSign = (day: IData, month: IData): string => {
+    console.log(day, month);
+    const astrologicalDates: {
+      start: [number, number];
+      end: [number, number];
+      sign: string;
+    }[] = [
       { start: [1, 20], end: [2, 18], sign: "Aquarius" },
       { start: [2, 19], end: [3, 20], sign: "Pisces" },
       { start: [3, 21], end: [4, 19], sign: "Aries" },
@@ -28,8 +39,8 @@ const GuidancePlan = () => {
       { start: [12, 22], end: [1, 19], sign: "Capricorn" },
     ];
 
-    const birthMonth = parseInt(month.value, 10);
-    const birthDay = parseInt(day.value, 10);
+    const birthMonth = parseInt(month.value as string, 10);
+    const birthDay = parseInt(day.value as string, 10);
 
     const foundSign = astrologicalDates.find((astrologicalDate) => {
       const [startMonth, startDay] = astrologicalDate.start;

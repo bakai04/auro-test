@@ -10,7 +10,7 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { Wrapper } from "./styled";
 
 const Wish = () => {
-  const [selectedWish, setSelectedWish] = useLocalStorageState("wish", "");
+  const [selectedWish, setSelectedWish] = useLocalStorageState({ key: "wish" });
   const { nextPage } = useRegistrationSteps();
   const router = useRouter();
 
@@ -18,7 +18,7 @@ const Wish = () => {
     router.push("/palmistry/resonated-element");
   };
 
-  const createState = (wish) => {
+  const createState = (wish: string) => {
     setSelectedWish(wish);
 
     if (wish === "Love & Relationship") {

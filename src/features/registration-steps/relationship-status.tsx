@@ -8,13 +8,12 @@ import Flex from "@/shared/ui/flex/Flex";
 import { Wrapper } from "./styled";
 
 const RelationshipStatus = () => {
-  const [selectedStatus, setSelectedStatus] = useLocalStorageState(
-    "relationshipStatus",
-    "",
-  ); // Using "relationshipStatus" as the key
+  const [selectedStatus, setSelectedStatus] = useLocalStorageState({
+    key: "relationshipStatus",
+  }); // Using "relationshipStatus" as the key
   const { nextPage } = useRegistrationSteps();
 
-  const handleRadioButtonClick = (status) => {
+  const handleRadioButtonClick = (status: string) => {
     try {
       setSelectedStatus(status);
       nextPage();
