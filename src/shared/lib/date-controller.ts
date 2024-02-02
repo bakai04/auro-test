@@ -60,7 +60,6 @@ export const formMonthController = (value: string) => {
 export const formYearController = (value: string) => {
   const prevValue = value.slice(0, -1);
   const lastValue = value[value.length - 1];
-
   if (!isNumericString(lastValue || "")) {
     return prevValue;
   }

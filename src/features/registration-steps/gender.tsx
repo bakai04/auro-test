@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
+import { useLocalStorageState } from "@/shared/hook/use-local-storage";
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
@@ -8,37 +9,20 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { Wrapper } from "./styled";
 
 const Gender = () => {
+  const [selectedGender, setSelectedGender] = useLocalStorageState(
+    "gender",
+    "",
+  );
   const { nextPage } = useRegistrationSteps();
-  const [selectedGender, setSelectedGender] = useState("");
 
   useEffect(() => {
-    // Retrieve the current gender value from localStorage on component mount
-    const currentStateString = localStorage.getItem("state") || "";
-    const currentState = JSON.parse(currentStateString);
-
-    if (currentState && currentState.state && currentState.state.gender) {
-      setSelectedGender(
-        currentState.state.gender === "male" ? "male" : "Female",
-      );
-    }
+    // No need to fetch from local storage here, it's handled by useLocalStorageState
   }, []);
 
-  // const createState = (gender) => {
-  // const currentStateString = localStorage.getItem("state") || "";
-  // let currentState = JSON.parse(currentStateString);
-  //
-  // if (!currentState) {
-  //   currentState = {
-  //     state: {},
-  //     version: 0,
-  //   };
-  // }
-  //
-  // currentState.state.gender = gender;
-  //
-  // localStorage.setItem("state", JSON.stringify(currentState));
-  //   nextPage();
-  // };
+  const createState = (gender) => {
+    setSelectedGender(gender);
+    nextPage();
+  };
 
   return (
     <Wrapper>
@@ -74,7 +58,7 @@ const Gender = () => {
             value={"male"}
             name={"gender"}
             checked={selectedGender === "male"}
-            onClick={() => nextPage()}
+            onClick={() => createState("male")}
           >
             Male
           </RadioButton>
@@ -84,7 +68,7 @@ const Gender = () => {
             value={"female"}
             name={"gender"}
             checked={selectedGender === "female"}
-            onClick={() => nextPage()}
+            onClick={() => createState("female")}
           >
             Female
           </RadioButton>

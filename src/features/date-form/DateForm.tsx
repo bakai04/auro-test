@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { useClickOutside } from "@/shared/hook/use-click-outside";
+import { useLocalStorageState } from "@/shared/hook/use-local-storage";
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import {
   checkDateValidation,
@@ -41,6 +42,25 @@ export const DateForm = () => {
     formState: { isValid: isFormValid },
   } = formMethods;
 
+  const [, setSelectedDate] = useLocalStorageState("birthday", {}); // Using "birthday" as the key
+
+  useEffect(() => {
+    // Retrieve the current date values from localStorage on component mount
+    const currentStateString = localStorage.getItem("state") || "";
+    const currentState = JSON.parse(currentStateString);
+
+    if (currentState && currentState.birthday) {
+      const { year, month, day } = currentState.birthday;
+
+      // Set the default values in the form
+      reset({
+        year: year?.value || "",
+        month: month?.value || "",
+        day: day?.value || "",
+      });
+    }
+  }, [reset]);
+
   const startValidation = async () => {
     const { year, month, day } = getValues();
     const isValidDate = checkDateValidation(+year, +month, +day);
@@ -49,8 +69,50 @@ export const DateForm = () => {
   };
 
   const onSubmit = async (data: IDateFormValues) => {
-    reset();
-    console.log(data);
+    try {
+      const currentStateString = localStorage.getItem("state") || "";
+      const currentState = JSON.parse(currentStateString);
+
+      if (currentState) {
+        const monthNames = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        currentState.birthday = {
+          year: {
+            value: data.year,
+            displayValue: data.year,
+          },
+          month: {
+            value: data.month,
+            displayValue: monthNames[parseInt(data.month, 10) - 1] || "",
+          },
+          day: {
+            value: data.day,
+            displayValue: data.day,
+          },
+        };
+
+        // Update local storage using the hook
+        setSelectedDate(currentState.birthday);
+
+        // localStorage.setItem("state", JSON.stringify(currentState)); // This line is not needed, as the hook updates the state
+      }
+
+      nextPage();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useClickOutside(ref, startValidation);

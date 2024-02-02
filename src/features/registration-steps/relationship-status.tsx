@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useLocalStorageState } from "@/shared/hook/use-local-storage";
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import { RadioButton, Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
@@ -7,7 +8,20 @@ import Flex from "@/shared/ui/flex/Flex";
 import { Wrapper } from "./styled";
 
 const RelationshipStatus = () => {
+  const [selectedStatus, setSelectedStatus] = useLocalStorageState(
+    "relationshipStatus",
+    "",
+  ); // Using "relationshipStatus" as the key
   const { nextPage } = useRegistrationSteps();
+
+  const handleRadioButtonClick = (status) => {
+    try {
+      setSelectedStatus(status);
+      nextPage();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <Wrapper>
@@ -35,18 +49,20 @@ const RelationshipStatus = () => {
           css={{ width: "100%", maxWidth: "400px" }}
         >
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Single")}
             id={"Single"}
             value={"Single"}
             name={"relationshipStatus"}
+            checked={selectedStatus === "Single"}
           >
             Single
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("In a relationship")}
             id={"In a relationship"}
             value={"In a relationship"}
             name={"relationshipStatus"}
+            checked={selectedStatus === "In a relationship"}
           >
             In a relationship
           </RadioButton>

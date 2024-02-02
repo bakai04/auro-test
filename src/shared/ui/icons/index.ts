@@ -1,7 +1,10 @@
 export { default as AirIcon } from "./air.svg";
 export { default as ArrowLeft } from "./arrow-left.svg";
 export { default as AstralHand } from "./astral-hand.svg";
+export { default as CameraHand } from "./camera-hand.svg";
+export { default as Camera } from "./camers.svg";
 export { default as EarthIcon } from "./earth.svg";
+export { default as FileIcon } from "./file.svg";
 export { default as FireIcon } from "./fire.svg";
 export { default as HeadAndHeart } from "./head-and-heart.svg";
 export { default as Logo } from "./logo.svg";

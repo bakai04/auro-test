@@ -3,11 +3,17 @@ import React from "react";
 
 import instruction from "@/assets/images/instruction.png";
 import { Wrapper } from "@/features/registration-steps/styled";
+import UploadModal from "@/features/uploadModal/uploadModal";
+import { Modals } from "@/shared/hook/use-modal";
 import { Button, Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
 import { ShieldIcon } from "@/shared/ui/icons";
 
 const Upload = () => {
+  const onAddModal = () => {
+    Modals.open(UploadModal, {});
+  };
+
   return (
     <Wrapper>
       <Flex
@@ -45,7 +51,9 @@ const Upload = () => {
             alignItems={"center"}
             css={{ width: "400px" }}
           >
-            <Button type="button">Take a picture now</Button>
+            <Button type="button" onClick={onAddModal}>
+              Take a picture now
+            </Button>
             <Text
               variant={"caption5"}
               color={"midnightBlack"}

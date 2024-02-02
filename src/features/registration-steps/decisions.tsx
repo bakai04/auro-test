@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useLocalStorageState } from "@/shared/hook/use-local-storage";
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
@@ -8,7 +9,20 @@ import { RadioButton } from "@/shared/ui/radio-button";
 import { Wrapper } from "./styled";
 
 const Decisions = () => {
+  const [selectedDecision, setSelectedDecision] = useLocalStorageState(
+    "decision",
+    "",
+  );
   const { nextPage } = useRegistrationSteps();
+
+  const handleRadioButtonClick = (decision) => {
+    try {
+      setSelectedDecision(decision);
+      nextPage();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <Wrapper>
@@ -35,26 +49,29 @@ const Decisions = () => {
           css={{ width: "100%" }}
         >
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Heart")}
             id={"Heart"}
             value={"Heart"}
-            name={"decisions "}
+            name={"decisions"}
+            checked={selectedDecision === "Heart"}
           >
             Heart
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Head")}
             id={"Head"}
             value={"Head"}
-            name={"decisions "}
+            name={"decisions"}
+            checked={selectedDecision === "Head"}
           >
             Head
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Both")}
             id={"Both"}
             value={"Both"}
-            name={"decisions "}
+            name={"decisions"}
+            checked={selectedDecision === "Both"}
           >
             Both
           </RadioButton>

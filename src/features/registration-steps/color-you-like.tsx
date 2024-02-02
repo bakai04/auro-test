@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useLocalStorageState } from "@/shared/hook/use-local-storage";
 import { useRegistrationSteps } from "@/shared/hook/use-registration-control";
 import { Text } from "@/shared/ui";
 import Flex from "@/shared/ui/flex/Flex";
@@ -9,7 +10,20 @@ import { Circle } from "@/shared/ui/сircle";
 import { Wrapper } from "./styled";
 
 const ColorYouLike = () => {
+  const [selectedColor, setSelectedColor] = useLocalStorageState(
+    "colorYouLike",
+    "",
+  );
   const { nextPage } = useRegistrationSteps();
+
+  const handleRadioButtonClick = (color) => {
+    try {
+      setSelectedColor(color);
+      nextPage();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <Wrapper>
@@ -33,7 +47,7 @@ const ColorYouLike = () => {
           css={{ width: "100%" }}
         >
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Red")}
             id={"Red"}
             value={"Red"}
             name={"color"}
@@ -42,6 +56,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Red"}
           >
             <Circle
               css={{
@@ -51,7 +66,7 @@ const ColorYouLike = () => {
             Red
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Yellow")}
             id={"Yellow"}
             value={"Yellow"}
             name={"color"}
@@ -60,6 +75,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Yellow"}
           >
             <Circle
               css={{
@@ -69,7 +85,7 @@ const ColorYouLike = () => {
             Yellow
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Blue")}
             id={"Blue"}
             value={"Blue"}
             name={"color"}
@@ -78,6 +94,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Blue"}
           >
             <Circle
               css={{
@@ -87,7 +104,7 @@ const ColorYouLike = () => {
             Blue
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Orange")}
             id={"Orange"}
             value={"Orange"}
             name={"color"}
@@ -96,6 +113,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Orange"}
           >
             <Circle
               css={{
@@ -105,7 +123,7 @@ const ColorYouLike = () => {
             Orange
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Green")}
             id={"Green"}
             value={"Green"}
             name={"color"}
@@ -114,6 +132,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Green"}
           >
             <Circle
               css={{
@@ -123,7 +142,7 @@ const ColorYouLike = () => {
             Green
           </RadioButton>
           <RadioButton
-            onClick={nextPage}
+            onClick={() => handleRadioButtonClick("Violet")}
             id={"Violet"}
             value={"Violet"}
             name={"color"}
@@ -132,6 +151,7 @@ const ColorYouLike = () => {
               gap: "24px",
               justifyContent: "flex-start",
             }}
+            checked={selectedColor === "Violet"}
           >
             <Circle
               css={{
