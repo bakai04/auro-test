@@ -23,7 +23,7 @@ export const Header = () => {
           <Icons.ArrowLeft />
         </PreviosButtonWrapper>
       )}
-      <Image src={logo} height={"70"} alt={logo} />
+      <Image src={logo} height={"70"} alt={"logo"} />
     </Wrapper>
   );
 };
